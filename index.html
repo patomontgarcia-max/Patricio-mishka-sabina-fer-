@@ -4,159 +4,343 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pobreza Multidimensional en México</title>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
-:root {
-    --primary: #2c3e50;
-    --secondary: #16a085;
-    --accent: #e67e22;
-    --light: #ecf0f1;
-    --card: #ffffff;
-}
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #16a085, #2c3e50);
-    color: #333;
-}
+        :root {
 
-header {
-    text-align: center;
-    padding: 60px 20px;
-    color: white;
-}
+            --primary: #2c3e50;
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
+            --secondary: #16a085;
 
-header p {
-    opacity: 0.9;
-}
+            --accent: #e67e22;
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
+            --light: #ecf0f1;
 
-.card {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 25px;
-    margin: 20px 0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
-}
+            --card: #ffffff;
 
-.card:hover {
-    transform: translateY(-5px);
-}
+        }
 
-h2 {
-    color: var(--secondary);
-}
+        body {
 
-ul {
-    padding-left: 20px;
-}
+            margin: 0;
 
-a {
-    color: var(--accent);
-    text-decoration: none;
-}
+            font-family: 'Segoe UI', Tahoma, sans-serif;
 
-a:hover {
-    text-decoration: underline;
-}
+            background: linear-gradient(135deg, #16a085, #2c3e50);
 
-footer {
-    text-align: center;
-    padding: 20px;
-    color: white;
-    font-size: 0.9em;
-}
+            color: #333;
+
+        }
+
+        header {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: white;
+
+        }
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: 2.5em;
+
+        }
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 20px;
+
+        }
+
+        .card {
+
+            background: var(--card);
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin: 20px 0;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+            transition: transform 0.2s ease;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+        h2 {
+
+            color: var(--secondary);
+
+            border-bottom: 2px solid var(--light);
+
+            padding-bottom: 10px;
+
+        }
+
+        ul {
+
+            padding-left: 20px;
+
+        }
+
+        a {
+
+            color: var(--accent);
+
+            text-decoration: none;
+
+        }
+
+        /* Estilos específicos para Acordeón */
+
+        .accordion-item {
+
+            border: 1px solid var(--light);
+
+            margin-bottom: 10px;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+        }
+
+        .accordion-header {
+
+            background-color: var(--light);
+
+            padding: 15px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            color: var(--primary);
+
+            transition: background 0.3s;
+
+        }
+
+        .accordion-header:hover {
+
+            background-color: #dfe6e9;
+
+        }
+
+        .accordion-content {
+
+            padding: 15px;
+
+            display: none;
+
+            background: white;
+
+            line-height: 1.6;
+
+        }
+
+        /* Estilos para el Contador */
+
+        #counter-box {
+
+            text-align: center;
+
+            padding: 20px;
+
+        }
+
+        #counter {
+
+            font-size: 3.5em;
+
+            color: var(--secondary);
+
+            font-weight: bold;
+
+            margin: 10px 0;
+
+        }
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: white;
+
+            font-size: 0.9em;
+
+        }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Pobreza Multidimensional en México</h1>
-    <p>Uso de herramientas digitales para sensibilizar a estudiantes universitarios</p>
+<h1>Pobreza Multidimensional en México</h1>
+<p>Uso de herramientas digitales para sensibilizar a estudiantes universitarios</p>
 </header>
-
 <div class="container">
-
 <div class="card">
-    <h2>Herramientas utilizadas</h2>
-    <ul>
-        <li><strong>Google Académico:</strong> búsqueda de artículos científicos.</li>
-        <li><strong>ChatGPT:</strong> organización y redacción.</li>
-        <li><strong>Redalyc:</strong> artículos científicos en español.</li>
-    </ul>
+<h2>Herramientas utilizadas</h2>
+<ul>
+<li><strong>Google Académico:</strong> búsqueda de artículos científicos.</li>
+<li><strong>ChatGPT:</strong> organización y redacción.</li>
+<li><strong>Redalyc:</strong> artículos científicos en español.</li>
+</ul>
 </div>
-
 <div class="card">
-    <h2>Resultados de la búsqueda</h2>
-    <ul>
-        <li><a href="https://idl-bnc-idrc.dspacedirect.org/server/api/core/bitstreams/574da1a9-e5b1-4fd5-854c-9ca3531174f4/content" target="_blank">Documento de investigación</a></li>
-        <li><a href="https://www.coneval.org.mx/InformesPublicaciones/FolletosInstitucionales/Paginas/La-medicion-multidimensional-de-la-pobreza-en-Mexico.aspx" target="_blank">CONEVAL - Medición de la pobreza</a></li>
-    </ul>
+<h2>Estadísticas de Impacto (ODS 6)</h2>
+<p>Progreso en el acceso a agua potable, un factor clave en la pobreza multidimensional.</p>
+<canvas id="myChart" width="400" height="200"></canvas>
 </div>
-
 <div class="card">
-    <h2>Introducción</h2>
-    <p>La pobreza en México es un problema social que afecta a millones de personas y limita el acceso a derechos básicos como educación, salud y vivienda digna.</p>
+<h2>Causas y Consecuencias</h2>
+<p>La pobreza limita el acceso a derechos básicos como educación y salud.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+<div>
+<h3 style="color: var(--accent);">Causas</h3>
+<ul>
+<li>Desigualdad económica</li>
+<li>Bajo nivel educativo</li>
+</ul>
 </div>
-
+<div>
+<h3 style="color: var(--accent);">Consecuencias</h3>
+<ul>
+<li>Desnutrición</li>
+<li>Abandono escolar</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="card">
-    <h2>Causas</h2>
-    <ul>
-        <li>Desigualdad económica</li>
-        <li>Bajo nivel educativo</li>
-        <li>Falta de empleo formal</li>
-        <li>Mala distribución de recursos</li>
-    </ul>
-</div>
+<h2>Preguntas Frecuentes sobre ODS</h2>
+<div class="accordion">
+<div class="accordion-item">
+<div class="accordion-header">¿Qué son los ODS?</div>
+<div class="accordion-content">
 
+                    Los Objetivos de Desarrollo Sostenible (ODS) son un llamado universal de la ONU para poner fin a la pobreza, proteger el planeta y garantizar la paz para 2030.
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header">¿Cómo se mide la pobreza en México?</div>
+<div class="accordion-content">
+
+                    El CONEVAL utiliza una medición multidimensional que incluye el ingreso y seis carencias sociales: educación, salud, seguridad social, vivienda, servicios básicos y alimentación.
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header">¿Cuál es el objetivo del ODS 1?</div>
+<div class="accordion-content">
+
+                    Poner fin a la pobreza en todas sus formas en todo el mundo.
+</div>
+</div>
+</div>
+</div>
+<div class="card" id="counter-box">
+<h2>Compromiso Social</h2>
+<p>Personas que han recibido apoyo a través de programas de desarrollo este minuto:</p>
+<div id="counter">0</div>
+<p><small>* Simulación basada en proyecciones de crecimiento de impacto social.</small></p>
+</div>
 <div class="card">
-    <h2>Consecuencias</h2>
-    <ul>
-        <li>Desnutrición</li>
-        <li>Abandono escolar</li>
-        <li>Trabajo infantil</li>
-        <li>Baja calidad de vida</li>
-    </ul>
+<h2>Reflexión Final</h2>
+<p>Aprendimos que la pobreza no solo es falta de dinero, sino también de oportunidades. La tecnología facilita investigar, pero siempre hay que verificar las fuentes.</p>
+<p><strong>Propuesta:</strong> Difusión de datos confiables y colaboración con organizaciones civiles.</p>
 </div>
-
-<div class="card">
-    <h2>Propuestas</h2>
-    <ul>
-        <li>Campañas en redes sociales</li>
-        <li>Proyectos escolares y comunitarios</li>
-        <li>Difusión de datos confiables</li>
-        <li>Colaboración con organizaciones</li>
-    </ul>
 </div>
-
-<div class="card">
-    <h2>Conclusión</h2>
-    <p>La pobreza requiere la participación de toda la sociedad. Informar y concientizar es clave para generar cambios.</p>
-</div>
-
-<div class="card">
-    <h2>Reflexión</h2>
-    <p>Aprendimos que la pobreza no solo es falta de dinero, sino también de oportunidades. La tecnología facilita investigar, pero siempre hay que verificar las fuentes.</p>
-</div>
-
-</div>
-
 <footer>
-    Proyecto académico | 2026
-</footer>
 
+    Proyecto académico | Pobreza Multidimensional en México | 2026
+</footer>
+<script>
+
+    // Configuración del Gráfico (Chart.js)
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    new Chart(ctx, {
+
+        type: 'bar',
+
+        data: {
+
+            labels: ['2015', '2020', '2023'],
+
+            datasets: [{
+
+                label: '% de población con acceso a agua',
+
+                data: [70, 85, 90],
+
+                backgroundColor: ['#16a085', '#2c3e50', '#e67e22'],
+
+                borderRadius: 5
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: { beginAtZero: true, max: 100 }
+
+            }
+
+        }
+
+    });
+
+    // Lógica del Acordeón (JQuery)
+
+    $(document).ready(function() {
+
+        $(".accordion-header").click(function() {
+
+            // Cierra los otros si se abre uno (opcional)
+
+            // $(".accordion-content").not($(this).next()).slideUp();
+
+            $(this).next(".accordion-content").slideToggle();
+
+        });
+
+        // Lógica del Contador (Simulación)
+
+        let count = 0;
+
+        setInterval(function() {
+
+            count += 3; // Simula el incremento
+
+            $("#counter").text(count);
+
+        }, 2000);
+
+    });
+</script>
 </body>
 </html>
